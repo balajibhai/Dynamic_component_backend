@@ -17,7 +17,6 @@ const DICTIONARY: Record<string, string> = {
 
 app.post("/api/detect", (req: any, res: any) => {
   const { text } = req.body;
-  console.log("text: ", text);
   const timestamp = new Date().toISOString();
 
   if (typeof text !== "string") {
