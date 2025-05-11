@@ -13,7 +13,13 @@ const DICTIONARY: Record<string, string> = {
   table: "Here is the table!",
   text: "Here is the text!",
   graph: "Here is the graph!",
+  tab: "Here is the tab!",
 };
+
+function extractFirstNumber(str: string) {
+  const m = str.match(/\d+/);
+  return m ? Number(m[0]) : null;
+}
 
 app.post("/api/detect", (req: any, res: any) => {
   const { text } = req.body;
@@ -30,6 +36,25 @@ app.post("/api/detect", (req: any, res: any) => {
   const lowered = text.toLowerCase();
   for (const [k, v] of Object.entries(DICTIONARY)) {
     if (lowered.includes(k)) {
+      if (k === "tab") {
+        const num = extractFirstNumber(text);
+        if (num) {
+          return res.json({
+            key: k,
+            value: v,
+            timestamp,
+            maindata,
+            numberOfTabs: num,
+          });
+        } else {
+          return res.json({
+            key: k,
+            value: v,
+            timestamp,
+            maindata,
+          });
+        }
+      }
       return res.json({ key: k, value: v, timestamp, maindata });
     }
   }
