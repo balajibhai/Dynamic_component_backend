@@ -14,6 +14,7 @@ const DICTIONARY: Record<string, string> = {
   text: "Here is the text!",
   graph: "Here is the graph!",
   tab: "Here is the tab!",
+  set: "successfully set!",
 };
 
 function extractFirstNumber(str: string) {
@@ -36,7 +37,7 @@ app.post("/api/detect", (req: any, res: any) => {
   const lowered = text.toLowerCase();
   for (const [k, v] of Object.entries(DICTIONARY)) {
     if (lowered.includes(k)) {
-      if (k === "tab") {
+      if (k === "tab" || k === "set") {
         const num = extractFirstNumber(text);
         if (num) {
           return res.json({
@@ -45,13 +46,6 @@ app.post("/api/detect", (req: any, res: any) => {
             timestamp,
             maindata,
             numberOfTabs: num,
-          });
-        } else {
-          return res.json({
-            key: k,
-            value: v,
-            timestamp,
-            maindata,
           });
         }
       }
