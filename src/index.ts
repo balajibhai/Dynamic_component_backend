@@ -1,4 +1,8 @@
 // src/index.ts
+
+// command to run this file or backend server
+// npx ts-node-dev ./src/index.ts
+
 import cors from "cors";
 import express from "express";
 
