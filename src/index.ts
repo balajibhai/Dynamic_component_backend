@@ -14,11 +14,11 @@ app.use(express.json());
 
 /** tiny demo dictionary */
 const DICTIONARY: Record<string, string> = {
-  table: "Here is the table!",
-  text: "Here is the text!",
-  graph: "Here is the graph!",
-  tab: "Here is the tab!",
-  set: "successfully set!",
+  table: "Here is the table in the preview!",
+  text: "Here is the text in the preview!",
+  graph: "Here is the graph in the preview!",
+  tab: "Here is the tab in the preview!",
+  set: "successfully set in the preview!",
 };
 
 function extractFirstNumber(str: string) {
