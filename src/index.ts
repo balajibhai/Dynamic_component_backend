@@ -17,7 +17,7 @@ const DICTIONARY: Record<string, string> = {
   table: "Here is the table in the preview!",
   text: "Here is the text in the preview!",
   graph: "Here is the graph in the preview!",
-  tab: "Here is the tab in the preview!",
+  tab: "Here are the tabs in the footer!",
   set: "successfully set in the preview!",
 };
 
