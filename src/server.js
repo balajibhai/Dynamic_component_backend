@@ -77,5 +77,14 @@ app.post("/merge", async (req, res) => {
   res.json(state);
 });
 
+// 6. Update the active tab
+app.post("/activeTab", async (req, res) => {
+  const { key } = req.body;
+  const state = await readState();
+  state.activeTabKey = key;
+  await writeState(state);
+  res.status(200).send();
+});
+
 const PORT = 4000;
 app.listen(PORT, () => console.log(`API running on http://localhost:${PORT}`));
