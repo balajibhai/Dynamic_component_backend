@@ -1,0 +1,28 @@
+{
+  "tabs": [
+    {
+      "key": "tab1",
+      "components": []
+    },
+    {
+      "key": "tab2",
+      "components": [
+        {
+          "id": "fUFfE5mIOc6oVVkyjzGKG",
+          "type": "graph",
+          "data": [
+            {
+              "date": "2025-05-21",
+              "distance": 5
+            },
+            {
+              "date": "2025-05-22",
+              "distance": 6
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "activeTabKey": "tab1"
+}
