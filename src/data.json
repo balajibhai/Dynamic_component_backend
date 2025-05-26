@@ -1,9 +1,9 @@
 {
   "tabs": [
     {
-      "key": "tab1",
+      "key": "preview",
       "components": []
     }
   ],
-  "activeTabKey": "tab1"
+  "activeTabKey": "preview"
 }

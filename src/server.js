@@ -49,7 +49,7 @@ app.put("/components/:id", async (req, res) => {
 
 // 4. Clear all components in a tab
 app.delete("/components", async (req, res) => {
-  const { key } = req.query; // e.g. /components?key=tab1
+  const { key } = req.query;
   const state = await readState();
   const tab = state.tabs.find((t) => t.key === key);
   if (!tab) return res.status(404).json({ error: "Tab not found" });
