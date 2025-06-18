@@ -3,6 +3,66 @@
     {
       "key": "preview",
       "components": []
+    },
+    {
+      "key": "tab1",
+      "components": [
+        {
+          "id": "-KGfw9O92pUED1koz9upp",
+          "type": "table",
+          "data": [
+            {
+              "date": "12/03/2021",
+              "distance": 3
+            },
+            {
+              "date": "11/02/2024",
+              "distance": 5
+            }
+          ]
+        },
+        {
+          "id": "cPVDojGJKWvHNpOyyYfC0",
+          "type": "text",
+          "data": [
+            {
+              "date": "12/03/2021",
+              "distance": 3
+            },
+            {
+              "date": "11/02/2024",
+              "distance": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "key": "tab2",
+      "components": [
+        {
+          "id": "ny1EI8Y0CqgO9g5Q2LKbt",
+          "type": "graph",
+          "data": [
+            {
+              "date": "12/03/2021",
+              "distance": 3
+            },
+            {
+              "date": "11/04/2024",
+              "distance": 4
+            },
+            {
+              "date": "12/05/2024",
+              "distance": 5
+            },
+            {
+              "date": "15/06/2024",
+              "distance": 9
+            }
+          ]
+        }
+      ]
     }
   ],
   "activeTabKey": "preview"
