@@ -5,7 +5,7 @@ import express, { Request, Response } from "express";
 import cors from "cors";
 import { nanoid } from "nanoid";
 import { readState, writeState } from "./utils";
-import { classifyAndExtract } from "./test";
+import { classifyAndExtract } from "./chatwithai";
 
 import { State, Tab, Component } from "./types";
 
