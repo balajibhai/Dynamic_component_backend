@@ -34,6 +34,22 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+/** tiny demo dictionary */
+const DICTIONARY: Record<string, string> = {
+  table: "Here is the table in the preview!",
+  text: "Here is the text in the preview!",
+  graph: "Here is the graph in the preview!",
+  tab: "Here are the tabs in the footer!",
+  set: "successfully set!",
+  new: "successfully set in a new tab!",
+};
+
+function extractFirstNumber(str: string) {
+  const m = str.match(/\d+/);
+  return m ? Number(m[0]) : null;
+}
+
+
 // 1. GET entire state
 app.get("/state", async (_req: Request, res: Response<State>) => {
   const state = await readState();
@@ -159,6 +175,41 @@ app.post(
     }
   }
 );
+
+// Detect keyword endpoint
+app.post("/api/detect", (req: Request<any, any, { text: string }>, res: any) => {
+  const { text } = req.body;
+  const timestamp = new Date().toISOString();
+
+  if (typeof text !== "string") {
+    return res.status(400).json({ error: "Missing 'text' field", timestamp });
+  }
+
+  // split into lines, drop the first, and rejoin
+  const lines = text.split(/\r?\n/);
+  const maindata = lines.slice(1).join("\n");
+
+  const lowered = text.toLowerCase();
+  for (const [k, v] of Object.entries(DICTIONARY)) {
+    if (lowered.includes(k)) {
+      if (k === "tab" || k === "set") {
+        const num = extractFirstNumber(text);
+        if (num) {
+          return res.json({
+            key: k,
+            value: v,
+            timestamp,
+            maindata,
+            numberOfTabs: num,
+          });
+        }
+      }
+      return res.json({ key: k, value: v, timestamp, maindata });
+    }
+  }
+
+  return res.json({ key: null, timestamp, maindata });
+});
 
 const PORT = 4000;
 app.listen(PORT, () => {
